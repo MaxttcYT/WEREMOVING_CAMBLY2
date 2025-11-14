@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Vocaboo zieht um – die neue Adresse von Vocaboo.">
+    <title>Vocaboo</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="h-screen bg-white flex flex-col gap-4 items-center justify-center p-0 m-0">
+    <img src="./luggage.svg" class="w-40" alt="Vocaboo moving" />
+    
+    <h1 class="text-3xl font-bold">Vocaboo zieht um!</h1>
+    
+    <p class="text-xl">
+        Die neue Adresse von Vocaboo ist 
+        <a href="https://www.vocaboo.de" class="text-blue-500 underline">www.vocaboo.de</a>
+    </p>
+    
+    <p class="text-lg italic text-gray-500">
+        Du wirst in <span id="timerSpan" class="font-bold">10</span> Sekunden weitergeleitet
+    </p>
+
+    <script>
+        const timerSpan = document.getElementById("timerSpan");
+        let timer = 10;
+
+        const interval = setInterval(() => {
+            timer--;
+            if (timer <= 0) {
+                clearInterval(interval);
+                timerSpan.textContent = "Jetzt!";
+                window.location.href = "https://www.vocaboo.de";
+            } else {
+                timerSpan.textContent = timer;
+            }
+        }, 1000);
+    </script>
+</body>
+
+</html>
